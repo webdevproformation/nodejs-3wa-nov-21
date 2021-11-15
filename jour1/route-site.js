@@ -52,7 +52,41 @@ router.get("/connexion" , async (req, rep) => {
 })
 
 router.post("/connexion" , async (req, rep) => {
-    rep.json({message : req.body})
+    try{
+        const {email , password} = req.body ;
+
+        const utilisateurRecherche = await UserModel.findOne({email : email})
+        if(!utilisateurRecherche){
+            return rep.status(404).json({
+                status : "erreur",
+                message : "aucun profil trouvé pour cet email"
+            })
+        }
+        bcrypt.compare(password , utilisateurRecherche.password , (err , result) => {
+            if(err) return rep.status(400).json({
+                status : "erreur",
+                message : "aucun profil trouvé pour ce passord"
+            });
+
+            // ajouter à la session une nouvelle valeur pour l'utilisateur 
+            req.session.user = {
+                email : utilisateurRecherche.email,
+                role : utilisateurRecherche.role,
+                _id : utilisateurRecherche._id
+            }
+
+            return rep.redirect("/admin");
+        })
+
+    }
+    catch(ex){
+        console.log(ex)
+    }
+})
+
+router.get("/admin" , ( req, rep ) => {
+    const user = req.session.user;
+    rep.render("admin" , { user });
 })
 
 module.exports = router ;

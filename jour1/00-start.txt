@@ -55,5 +55,25 @@ utiliser ce model pour insérer un nouveau compte user dans la collection user q
 la base de données MOngoDB Atlas 
 
 
+cas pratique 
+
+router.post("/connexion", (req, rep) => {
+
+	// récupérer les emails / mots de passe 
+
+	// vérifier que le mot de passe existe => status 404 
+
+	// verifier que le password est correct => status 404 
+
+	// ajouter à la session de l'utilisateur une nouvelle valeur 
+	req.session.user = {
+		email : ....
+		role : ....
+	}
+
+	// redirection vers une page "admin" 
+
+})
+
 
 
