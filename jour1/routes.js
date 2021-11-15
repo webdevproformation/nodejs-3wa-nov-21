@@ -1,6 +1,7 @@
 const  { Router } = require("express"); 
 const router = Router();
 const { ProduitModel } = require("./model-produit");
+
 router.get("/" , async (req, rep) => {
     try{
         let nouveauProduit = new ProduitModel({ nom : "produit1" , prix : 20 });

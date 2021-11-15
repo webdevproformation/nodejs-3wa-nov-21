@@ -39,6 +39,20 @@ cette page contient un formulaire avec deux champs :
 
 utiliser materiaze pour mettre en forme la page 
 
+//------------------------
+
+cas pratique 
+
+créer un nouveau fichier de model / schema mongoose 
+dans la collection users, ajouter des documents qui auront la forme suivante
+{
+	email : chaine de caractère Obligatoire 
+	password : chaine de caractère Obligatoire 
+	role : [admin / redacteur] par défaut => admin 
+}
+
+utiliser ce model pour insérer un nouveau compte user dans la collection user qui est sur 
+la base de données MOngoDB Atlas 
 
 
 
