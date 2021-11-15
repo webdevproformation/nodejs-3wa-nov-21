@@ -1,0 +1,31 @@
+support de cours : 
+
+url : https://formation.webdevpro.net/nodejs/
+login : node
+mdp : node 
+
+Nodejs => environnement exécution de javascript 
+permet d'exécuter du js hors des navigateurs web 
+
+
+outil en ligne de commande => node fichier.js
+
+en même temps que l'installation de node => npm => node package manager 
+deuxième outil en ligne de commande qui permet de télécharger des librairies depuis le site npmjs.com 
+
+npm init --yes => package.json 
+npm i <package> => télécharger un package de production
+	express / mongoose / dotenv / ....
+
+npm i <package> -D => télécharger un package de développement 
+	jest (test unitaire / intégration) / gulp (task runner)
+
+npm i <package> -g => télécharger un package en Global (disponible sur toutes les projets)
+	nodemon librairie qui permet de relancer le serveur si modification dans le code source 
+
+
+lancer éditeur de texte (Visual Studion Code) 
+
+
+
+

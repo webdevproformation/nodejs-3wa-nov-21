@@ -1,0 +1,45 @@
+// fichier principal de notre application 
+// ajouter une ligne dans le fichier package.json
+// "dev" : "nodemon server.js" => npm run dev
+
+// start et test => npm start / npm run start 
+
+
+// ordinateur => linux => nodejs 
+// projet local => uploader ordinateur => node start
+// process.env.PORT = 4423 ...
+// dans la machine de héroku localhost:4423 <=> adresse web mon-app.heroku.com
+
+// ovh => machine qui contient un linux => nodejs 
+// VPS => machine virtuel privaisée
+// https://www.ovhcloud.com/fr/vps/
+
+// serveur dédié => serveur 
+// CPanel => logiciel que ovh met à disposition pour gérer  serveur dédié
+// Plesk => logiciel que ovh met à disposition pour gérer  serveur dédié
+
+// passer en ligne de commande "apt-get install node" 
+// https://redstapler.co/run-node-js-apache-server/
+// linux export PORT=12345
+
+
+// post directement depuis postman via la méthode POST 
+// organiser notre code (en plusieurs fichiers)
+// ajouter un nouveau concept => session => express-session  
+// rdv 11h15 bon café @ toute suite !!! 
+
+
+// etablir une connexion à une base de données MongoDB disponible sur le site 
+// https://www.mongodb.com/
+// récupérer les identifiants de connexion 
+// mongoose.connect( "url", {useNewUrlParser : true} )
+//           .then( message succès)
+//           .catch( message erreur )
+
+// ls -al
+// ls -la
+// ls -l -a
+
+// rm -fr
+// rm -rf
+// rm -r -f *
