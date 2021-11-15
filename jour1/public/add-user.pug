@@ -6,7 +6,7 @@ block titre_page
 block contenu_page
     h1 créer un profil utilisateur 
     .row 
-        form(action="#")
+        form(action=www)
             .input-field 
                 input(type="text" name="email" id="email")
                 label(for="email") votre email 
@@ -14,3 +14,6 @@ block contenu_page
                 input(type="text" name="password" id="password")
                 label(for="password") votre password 
             input(type="submit" class="waves-effect waves-light btn purple darken-1 submit-btn")
+
+block script_page 
+    script(src="/add-user.js")
