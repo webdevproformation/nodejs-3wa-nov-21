@@ -27,10 +27,11 @@ app.use(
 
 app.set("views" , "public"); // le dossier qui contient les fichier.pug
 app.set("view engine" , "pug") // express => rep.render("fichier")
+app.use(express.static("public"))
 
 app.use("/" , require("./routes"));
 app.use("/" , require("./routes-cookie"));
-app.use("/" , require("./route-site"));
+app.use("/" , require("./route-site")); 
 
 app.listen(PORT , () => console.log(`bienvenu sur le serveur express ${PORT}`));
 // postman => http://localhost:3444

@@ -1,4 +1,10 @@
-h1 création site internet 
-div 
-    p #{message}
-    p= message
+extends layout 
+
+block titre_page 
+    title Bienvenu sur le site
+
+block contenu_page
+    h1 création site internet 
+    div 
+        p #{message} <!-- interpolation -->
+        p= message
