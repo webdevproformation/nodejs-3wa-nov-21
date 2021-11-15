@@ -38,13 +38,21 @@ router.post("/add-user" , async (req, rep) => {
         newUser = await newUser.save()
 
         rep.json( { 
-            status : "success" ,
-            profil : newUser
+            status : "success"
         })
     }
     catch(ex){
         console.log(ex);
     }
+})
+
+router.get("/connexion" , async (req, rep) => {
+    const www = `${req.protocol}://${req.headers.host}${req.originalUrl}`;
+    rep.render("connexion" , { www } );
+})
+
+router.post("/connexion" , async (req, rep) => {
+    rep.json({message : req.body})
 })
 
 module.exports = router ;
