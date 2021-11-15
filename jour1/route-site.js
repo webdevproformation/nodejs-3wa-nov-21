@@ -75,7 +75,8 @@ router.post("/connexion" , async (req, rep) => {
                 _id : utilisateurRecherche._id
             }
 
-            return rep.redirect("/admin");
+             rep.redirect("/admin");
+            //document.location.href = "/admin"
         })
 
     }
