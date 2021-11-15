@@ -9,5 +9,10 @@ router.get("/home" , (req, rep) => {
     rep.render("home", welcome);
 })
 
+router.get("/add-user" , (req, rep) => {
+
+    rep.render("add-user");
+})
+
 module.exports = router ;
 

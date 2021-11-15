@@ -27,5 +27,19 @@ npm i <package> -g => télécharger un package en Global (disponible sur toutes 
 lancer éditeur de texte (Visual Studion Code) 
 
 
+// cas pratique 
+créer une nouvelle page => accessible depuis l'adresse 
+
+http://localhost:3444/add-user 
+
+cette page contient un formulaire avec deux champs :
+	email 
+	password 
+	bouton de soumission 
+
+utiliser materiaze pour mettre en forme la page 
+
+
+
 
 
