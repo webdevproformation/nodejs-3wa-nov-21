@@ -5,7 +5,8 @@ const router = Router();
 
 router.get("/home" , (req, rep) => {
     const welcome = {
-        message : "bienvenu"
+        message : "bienvenu",
+        session : req.session.user // { }   undefined
     }
     rep.render("home", welcome);
 })
@@ -13,7 +14,10 @@ router.get("/home" , (req, rep) => {
 router.get("/add-user" , (req, rep) => {
     const www = `${req.protocol}://${req.headers.host}${req.originalUrl}`;
     //            http          ://   localhost:3444/   add-user
-    rep.render("add-user" , { www });
+    rep.render("add-user" , { 
+                        www , 
+                        session : req.session.user 
+                    });
 })
 
 router.post("/add-user" , async (req, rep) => {
@@ -48,7 +52,9 @@ router.post("/add-user" , async (req, rep) => {
 
 router.get("/connexion" , async (req, rep) => {
     const www = `${req.protocol}://${req.headers.host}${req.originalUrl}`;
-    rep.render("connexion" , { www } );
+    rep.render("connexion" , { www , 
+        session : req.session.user 
+    } );
 })
 
 router.post("/connexion" , async (req, rep) => {
@@ -92,8 +98,16 @@ router.post("/connexion" , async (req, rep) => {
 })
 
 router.get("/admin" , ( req, rep ) => {
-    const user = req.session.user;
-    rep.render("admin" , { user });
+    const session = req.session.user;
+    rep.render("admin" , { session });
+})
+
+// ajouter dans une dernière route qui permet de supprimer req.session => supprimer la propriété  user 
+
+router.get("/delete-cookie" , (req, rep) => {
+    //req.session.user = undefined
+    delete req.session.user;
+    rep.json({ message : "prop user supprimée de la session"});
 })
 
 module.exports = router ;

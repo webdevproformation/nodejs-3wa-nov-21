@@ -5,4 +5,21 @@ nav
             li: a(href="/home") Accueil
             li: a(href="/add-user") Créer profil
         ul.right 
-            li: a(href="/connexion") Connexion
+            if session == undefined
+                li: a(href="/connexion") Connexion
+            if session != undefined
+                li: a(href="/admin") Admin
+                li: a(href="/deconnexion").deconnexion Déconnexion
+                script. 
+                    document.querySelector(".deconnexion").addEventListener("click", e => {
+                        e.preventDefault()
+                        const req = new XMLHttpRequest()
+                        req.open("GET","/delete-cookie");
+                        req.send()
+                        req.onload = () => {
+                            if(req.status === 200){
+                                console.log(req.responseText)
+                                window.location.href = "/connexion";
+                            }
+                        }
+                    })
