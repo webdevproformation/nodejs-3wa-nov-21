@@ -27,3 +27,11 @@
 // client 1 
 // client 2      <=========== > 1 serveur 
 // client 3      <===========
+
+// rdv 11h20 bon café @ toute suite !! 
+// système de tchat => socket.io deux versions client // version serveur 
+// https://socket.io/
+
+// partie serveur 
+// npm init --yes
+// npm i express socket.io
