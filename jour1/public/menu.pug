@@ -3,7 +3,8 @@ nav
         .brand-logo.left Jour1 
         ul.left
             li: a(href="/home") Accueil
-            li: a(href="/add-user") Créer profil
+            if session != undefined
+                li: a(href="/add-user") Créer profil
         ul.right 
             if session == undefined
                 li: a(href="/connexion") Connexion
