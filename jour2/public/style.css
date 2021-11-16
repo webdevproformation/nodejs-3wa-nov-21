@@ -12,6 +12,12 @@
 section{
     border: 2px solid #555; border-radius: 5px;
 }
+section p {
+    margin: 1em 1.1em;
+    font-family: sans-serif;
+    font-size: 1.1em;
+}
+
 form{
     display: grid; grid-gap: 8px;
 }

@@ -11,7 +11,7 @@ const generateElements = (emojiInput) => {
     }
   }
 
-  emojiInput.style = `width: calc( 100% - 2em - 4px)`;
+  emojiInput.style = `width: calc( 100% - 10px - 2px)`;
 
   const emojiContainer = document.createElement('div')
   emojiContainer.style = `position: relative;`
@@ -52,9 +52,11 @@ const generateElements = (emojiInput) => {
   emojiList.style = `padding: 0;
     margin: 0;
     list-style: none;`
+    // code hexadécimal des émoji 
+    // https://www.unicode.org/emoji/charts/full-emoji-list.html
   const emojis = [0x1F601, 0x1F602, 0x1F603, 0x1F60D, 0x1F60A, 0x1F614, 0x1F613, 0x1F633, 
                   0x1F631 , 0x1F440 , 0x1F622, 0x1F648, 0x1F62D, 0x1F44D, 0x1F389 , 0x1F44D , 
-                  0x1F47D , 0x1F917 , 0x1F47A];
+                  0x1F47D , 0x1F917 , 0x1F47A , 0x1F920];
 
   emojis.map((item) => {
       const emojiLi = document.createElement('li')
