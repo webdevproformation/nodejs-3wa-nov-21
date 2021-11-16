@@ -51,6 +51,7 @@ socket.on("suppr-message-id" , id => {
 
 // remplir le tchat lors du lancement du navigateur
 socket.on("all-message" , data => {
+    outputMessage.innerHTML = "";
     data.forEach( message => {
         outputMessage.innerHTML += remplirTchatBox(message);
     } );
