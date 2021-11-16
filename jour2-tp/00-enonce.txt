@@ -1,0 +1,25 @@
+créer un nouveau projet  jour2-tp 
+
+créer un fichier package.json 
+installer express socket.io mongoose dotenv
+
+créer un système de tchat multiutilisateur 
+
+- en plus de l'exemple présenté dans le dossier jour2 
+- lorsque un message est envoyé à votre web socket => enregistré dans une base de donnée mongoDB dans un table tchat 
+- il sera possible de supprimer un message par l'utilisateur 
+    - suppression du message dans la base de données
+    - mise à jour de l'écran dans des autres clients 
+
+-- connexion à la base de données
+-- model Message 
+-- côté serveur => au moment de la réception d'un message 
+    l'enregistre en base de données 
+
+-- côté ajout un nouveau message un bouton pour supprimer le message 
+
+
+
+
+
+
