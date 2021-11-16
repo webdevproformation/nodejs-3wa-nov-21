@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tchat</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <section>
+             <div class="output-message"></div>
+             <div class="output-feedback"></div>
+        </section>
+        <form>
+            <input type="text" name="nom" placeholder="votre nom" class="input-nom">
+            <input type="text" name="message" placeholder="votre message" class="input-message" data-emoji="true">
+            <input type="submit" value="envoyer le message">
+        </form>
+    </div>
+    <!-- appeler la version client de socket.io => https://socket.io/ -->
+    <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
+    <script src="/tchat.js"></script>
+    <script src="/emoji.js"></script>
+    <script>
+        window.EmojiPicker.init()
+    </script>
+</body>
+</html>
