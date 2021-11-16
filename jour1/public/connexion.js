@@ -10,6 +10,11 @@ document.querySelector("form").addEventListener("submit" , e => {
         password : data.get("password")
     }))
     req.onload = () => {
-        console.log(req.responseText);
+        
+        if(req.status === 200){
+            const {url} = JSON.parse(req.responseText)
+            window.location.href = url;
+            // PHP header("Location: ... ")
+        }
     }
 })

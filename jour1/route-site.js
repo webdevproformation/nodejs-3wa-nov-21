@@ -75,8 +75,14 @@ router.post("/connexion" , async (req, rep) => {
                 _id : utilisateurRecherche._id
             }
 
-             rep.redirect("/admin");
+            rep.json({
+                status : "success",
+                url : `${req.protocol}://${req.headers.host}/admin`
+            })
+
+            // PHP header("Location: http...com ");
             //document.location.href = "/admin"
+            // socket.io 
         })
 
     }
