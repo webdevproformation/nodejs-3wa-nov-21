@@ -1,0 +1,100 @@
+possible de d'écrire du code qui va permet de tester votre code 
+
+=> écrire du code qui teste votre code 
+
+=> ajouter du temps de développement pour créer le code pour tester votre code 
+
+=> avantage par rapport à la réalisation de tests à la main 
+
+à la main => accéder à l'application / saisir un identifiant
+          => remplir un formulaire 
+          => soumettre 
+          => vérifier visuellement que tout a bien fonctionné 
+
+l'avantage de mettre en place du code qui permet d'automatiser le processus
+de test 
+
+- répéter autant fois que nécessaire 
+- exécution plus vite 
+- détecter des bug avant le déploiement 
+- modifier votre code / réorganiser (changer les noms des fonctions)
+- enlever des instructions => système de test va permet de réaliser 
+des modifications et vérifier que la logique / valeurs à récupérer sont bien 
+présentes 
+
+enlever une grande partie des erreurs 
+
+---------------------- 
+
+3 types de famille de code de test 
+
+test unitaire => tester une unité de votre application SANS ses dépendances
+                 une fonctionnalité SANS base de données / SANS fichiers 
+
+------------- 
+
+test d'intégration => tester une unité de votre application AVEC ses dépendances exécuter une fonctionnalité solicite une base de données 
+
+------------- 
+
+test e2e End to End => tester votre application directement via l'interface visuel => script qui vont cliquer / remplir les champs visuelle afficher le résultat 
+
+test unitaire => rapide à exécuter / facile à écrire / 
+              tirer des conclusions sur le bon fonctionnement complet de 
+              l'application 
+
+test d'intégration => moins rapide à exécuter que les tests unitaires
+                un peu plus fastidieux à écrire 
+                donne de meilleures conclusion sur le fonctionne de votre application 
+
+test e2e => fonctionne => la fonctionnalité fonctionne intégralement 
+            le plus long en terme d'exécution 
+            fragile
+
+            dès que l'on effectue des modifications => 
+
+
+---- 
+
+pyramide des tests :
+
+le nombre de chaque type de test que l'on doit réaliser 
+
+beaucoup de test unitaire 
+un peu moins de test d'intégration  => quelles sont les limites 
+edge case 
+beaucoup moins de test e2e => vérifier uniquement que le happy path fonctionne
+
+---- 
+
+PHP => PHPUnit 
+
+Javascript 3 librairies / framework qui permettent de faire des tests 
+
+jasmine => plus ancien => permet de tout faire 
+https://jasmine.github.io/
+
+mocha => + plugin  chai + sinon 
+https://mochajs.org/
+
+jest => plus récent 
+=> sait faire l'ensemble des tests (pas besoin de lui rajouter de extensions)
+=> ressemble beaucoup à la manière de fonctionne jasmine 
+=> créée par Facebook 
+=> Tester React 
+https://jestjs.io/
+
+- librairie avec de nombreuses que l'on va pouvoir utiliser pour effectuer nos tests 
+- test runner => outil en ligne de commande qui permet de 
+effectuer les test en ligne de commande 
+
+package.json 
+npm init --yes
+
+librairies qui permet d'aider le développeur lors de son travail 
+ce ne sont pas des librairies que l'on utiliser dans l'environnement de production 
+
+npm i jest --save-dev 
+npm i jest -D
+
+modifier le fichier package.json 
