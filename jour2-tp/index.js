@@ -16,9 +16,10 @@ app.use(express.static("public"))
 const serveur = app.listen(PORT , () => console.log(`connexion express ${PORT}`))
 const ws = socket(serveur)
 
-ws.on("connection" , socket => {
-
-// 15h50 pour la suite ! bon café @ toute suite !!
+ws.on("connection" , async( socket ) => {
+        
+       const allMessage = await Message.find()
+       ws.sockets.emit("all-message", allMessage);
 
        socket.on("message" , async(data) => { 
         try{

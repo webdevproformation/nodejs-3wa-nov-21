@@ -10,6 +10,17 @@ const outputMessage = document.querySelector(".output-message")
 const outputFeedback = document.querySelector(".output-feedback")
 const tchatBox = document.querySelector("section")
 
+function remplirTchatBox(data){
+    return `
+    <p>
+        <button id="id${data._id}" ${ data.nom != nom.value ? 'disabled' : '' } >suppr</button>
+        <span>
+            ${data.nom} - ${data.message}
+        </span>
+    </p>`
+}
+
+// soumission du formulaire
 form.addEventListener("submit", e => {
     e.preventDefault();
 
@@ -20,27 +31,30 @@ form.addEventListener("submit", e => {
     socket.emit("message" , messageTchat);
 })
 
+// réponse du socket 
 socket.on("reponse" , (data) => {
-    outputMessage.innerHTML += `
-        <p>
-            <button data-id="${data._id}" ${ data.nom != nom.value ? 'disabled' : '' } >suppr</button>
-            <span>
-                ${data.nom} - ${data.message}
-            </span>
-        </p>
-    `
+    outputMessage.innerHTML += remplirTchatBox(data);
 })
 
-// suppression
+// bouton de suppression
 tchatBox.addEventListener("click" , e => {
     if(e.target.nodeName === "BUTTON"){
-        const id = e.target.dataset.id ;
+        const id = e.target.id.slice(2) ;
         socket.emit("suppr-message" , id);
     }
 })
 
+// réception du message pour supprimer 
 socket.on("suppr-message-id" , id => {
-    tchatBox.querySelector(`button[data-id='${id}']`).parentNode.remove()
+    tchatBox.querySelector(`#id${id}`).parentNode.remove()
 })
+
+// remplir le tchat lors du lancement du navigateur
+socket.on("all-message" , data => {
+    data.forEach( message => {
+        outputMessage.innerHTML += remplirTchatBox(message);
+    } );
+})
+
 
 
