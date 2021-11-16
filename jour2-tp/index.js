@@ -18,6 +18,21 @@ const ws = socket(serveur)
 
 ws.on("connection" , socket => {
 
+// 15h50 pour la suite ! bon café @ toute suite !!
 
+       socket.on("message" , async(data) => { 
+        try{
+            let nouveauMessage = new Message(data)
+            nouveauMessage = await nouveauMessage.save()
+            ws.sockets.emit("reponse", nouveauMessage)
+        }
+        catch(ex){
+            console.log(ex)
+        }
+       })
 
+       socket.on("suppr-message" , async (id) => {
+           await  Message.deleteOne({_id : id}); 
+           ws.sockets.emit("suppr-message-id", id)
+       })
 })
