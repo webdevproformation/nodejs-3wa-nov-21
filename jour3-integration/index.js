@@ -14,8 +14,12 @@ const app = express();
 app.use(express.json());
 app.use("/" , require("./route"));
 
-app.listen(PORT , console.log(`express sur port ${PORT}`));
+const server = app.listen(PORT , console.log(`express sur port ${PORT}`));
 
+module.exports = server ; 
 // export NODE_ENV=production && nodemon index.js
 // postman => via cet outil vous venez de réaliser un test manuel de votre API 
 // test integration manuellement code + dépendance à la base de données 
+
+// npm i supertest -D 
+// livrairie qui permet de réaliser l'ensemble des actions que l'on fait avec postman via du code =>réaliser des requête http exactement comme postman 
