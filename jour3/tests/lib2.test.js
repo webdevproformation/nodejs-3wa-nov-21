@@ -28,9 +28,9 @@ describe("getUser", ()=> {
 
 describe("rechercheArticle" , () => {
     it("retourne une collection si le titre existe" , () => {
-        const resultat = lib.rechercheArticle("Article1");
+        const resultat = lib.rechercheArticle("Article");
         expect(resultat.length).toBeGreaterThanOrEqual(1) // [{}, {}]
-        expect(resultat.some(a => a.titre === "Article1")).toBeTruthy()
+        expect(resultat.some(a => a.titre.includes("Article"))).toBeTruthy()
     })
     it("retourne une tableau vide si le titre n'existe pas" , () => {
         const resultat = lib.rechercheArticle("n'existe pas");

@@ -14,5 +14,5 @@ exports.rechercheArticle = (titre) => {
         { id : 2 ,titre : "Article1"},
         { id : 3 ,titre : "Article3"}
     ];
-    return bdd.filter( el => el.titre.toLowerCase() === titre )
+    return bdd.filter( el => el.titre.toLowerCase().includes(titre) )
 }
