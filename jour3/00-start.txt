@@ -49,3 +49,24 @@ fonction retourner soit un nombre soit une chaine de caractères
 // rdv 11h15 @ toute suite !! 
 
 
+dans le fichier lib2.js créer une fonction qui s'appelle rechercheArticle
+
+contient un paramètre "titre"
+
+traitement dans la fonction 
+    prendre titre => le mettre en minuscule
+
+    lancer une recherche via la fonction filter() sur la variable suivante
+    const bdd = [
+        { id : 1 ,titre : "Article1"},
+        { id : 2 ,titre : "Article1"},
+        { id : 3 ,titre : "Article3"}
+    ]
+    retourne si la valeur demandée est trouvée dans le tableau => [{},{}]
+    retourne si la valeur demandée n'est pas trouvée dans le tableau => []
+
+créer la fonction et réaliser les test pour que vérifier la solidité de vos traitements 
+
+rechercheArticle("Article3") => [{ id : 3 ,titre : "Article3"}]
+rechercheArticle("Article1") => [{ id : 1 ,titre : "Article1"} , { id : 2 ,titre : "Article1"}]
+rechercheArticle("inconnu")  => []

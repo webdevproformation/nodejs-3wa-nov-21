@@ -25,3 +25,15 @@ describe("getUser", ()=> {
         // []  {} => en javascript ça ne renvoie pas faux 
     })
 });
+
+describe("rechercheArticle" , () => {
+    it("retourne une collection si le titre existe" , () => {
+        const resultat = lib.rechercheArticle("Article1");
+        expect(resultat.length).toBeGreaterThanOrEqual(1) // [{}, {}]
+        expect(resultat.some(a => a.titre === "Article1")).toBeTruthy()
+    })
+    it("retourne une tableau vide si le titre n'existe pas" , () => {
+        const resultat = lib.rechercheArticle("n'existe pas");
+        expect(resultat.length).toBe(0)
+    })
+})
