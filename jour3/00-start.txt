@@ -70,3 +70,37 @@ créer la fonction et réaliser les test pour que vérifier la solidité de vos 
 rechercheArticle("Article3") => [{ id : 3 ,titre : "Article3"}]
 rechercheArticle("Article1") => [{ id : 1 ,titre : "Article1"} , { id : 2 ,titre : "Article1"}]
 rechercheArticle("inconnu")  => []
+
+
+// ---------------------
+
+dans le fichier lib2.js ajouter la fonction suivante :
+
+exports.palindrome = function (str) { // ""
+  if(typeof str !== "string"){
+    throw new Error("paramètre incorrect")
+  }
+
+  if(typeof str === "string" && str.length === 0){
+    throw new Error("paramètre incorrect")
+  }
+
+  const plainStr = str.replace(/[^0-9a-z]+/, '').toLowerCase();
+
+  const plainStrReverse = plainStr.split("").reverse().join("");
+
+  if(plainStr === plainStrReverse){
+    return true;
+  }
+  return false;
+}
+// réaliser les tests unitaires pour vérifier que la fonction palindrome fonctionne bien 
+
+palindrome("laval") => true
+palindrome("lol") => true
+palindrome("kayak") => true
+palindrome("") => false
+palindrome("Engage le jeu que je le gagne") => false
+
+palindrome("bonjour")
+palindrome("manger") => false regnam
