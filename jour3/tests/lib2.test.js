@@ -78,7 +78,6 @@ describe("palindrome" , () => {
         const palindromeValid = ["laval", 'lol' , "Engage le jeu que je le gagne"];
         palindromeValid.forEach( str => {
             const resultat = lib.palindrome(str);
-            console.log(str , resultat);
             expect(resultat).toBe(true);
         })
     })

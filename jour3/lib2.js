@@ -40,7 +40,6 @@ exports.palindrome = function (str) {
     }
   
     const plainStr = str.replace(/[^0-9a-zA-Z]+/g, '').toLowerCase();
-    console.log(plainStr);
 
     const plainStrReverse = plainStr.split("").reverse().join("");
   
