@@ -99,8 +99,8 @@ exports.palindrome = function (str) { // ""
 palindrome("laval") => true
 palindrome("lol") => true
 palindrome("kayak") => true
+palindrome("Engage le jeu que je le gagne") => true
 palindrome("") => false
-palindrome("Engage le jeu que je le gagne") => false
 
 palindrome("bonjour")
 palindrome("manger") => false regnam

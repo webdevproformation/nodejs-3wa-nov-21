@@ -29,3 +29,23 @@ exports.creerProfilUtilisateur = (email , password) => {
         dt_creation : Date.now()
     }
 }
+
+exports.palindrome = function (str) { 
+    if(typeof str !== "string"){
+      throw new Error("paramètre incorrect")
+    }
+  
+    if(typeof str === "string" && str.length === 0){
+      throw new Error("paramètre incorrect")
+    }
+  
+    const plainStr = str.replace(/[^0-9a-zA-Z]+/g, '').toLowerCase();
+    console.log(plainStr);
+
+    const plainStrReverse = plainStr.split("").reverse().join("");
+  
+    if(plainStr === plainStrReverse){
+      return true;
+    }
+    return false;
+}

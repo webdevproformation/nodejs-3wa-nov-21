@@ -56,3 +56,31 @@ describe("creerProfilUtilisateur", () => {
         expect(resultat).toMatchObject({"password" : "a"})
     })
 })
+
+describe("palindrome" , () => {
+    // vérifier est ce que exception si la valeur n'est pas une chaine caractère 
+    it("lever une exception si l'input est falsy plus" , () => {
+        const falsyPlus = [0 , undefined , null , -0 , false , "" , NaN , [] , {}];
+        falsyPlus.forEach( faux => {
+            expect(() => { lib.palindrome(faux) }).toThrow()
+        })
+    })
+    // vérifier si je donne un input qui n'est pas un palindrome false
+    it("retourne false si input n'est pas un palindrome valide", () => {
+        const palindromeInvalid = ["manger", 'bonjour'];
+        palindromeInvalid.forEach( str => {
+            const resultat = lib.palindrome(str);
+            expect(resultat).toBe(false);
+        })
+    })
+    // vérifier si je donne un input qui est un palindrome true
+    it("retourne true si input est un palindrome valide même avec des espaces", () => {
+        const palindromeValid = ["laval", 'lol' , "Engage le jeu que je le gagne"];
+        palindromeValid.forEach( str => {
+            const resultat = lib.palindrome(str);
+            console.log(str , resultat);
+            expect(resultat).toBe(true);
+        })
+    })
+
+})
