@@ -57,3 +57,8 @@ describe("test la fonction article" , () => {
         expect(cde.prix).toBe(10 * 0.9);
     })
 })
+// rdv 16h00 => test d'intégration tester des unités de votre application AVEC leurs dépendences 
+// appel à d'autres fonctions // appel à la base de données 
+
+// PHPUnit ?? 
+// utiliser jest dans un projet nodejs => tester des routes // middleware 
