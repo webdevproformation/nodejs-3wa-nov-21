@@ -1,0 +1,17 @@
+// https://github.com/webdevproformation/nodejs-3wa-nov-21
+// cd jour3
+// npm init -y
+
+// plusieurs librairies jasmine / mocha / jest 
+// jest pendant la phase de développement => dépendance de développement 
+
+// npm i jest -D
+
+// package.json => modifier les valeurs inscrites dans la partie scripts 
+
+// npm test => jest => node_modules/.bin/jest.cmd | jest 
+
+// .test.js | .spec.js 
+
+
+
