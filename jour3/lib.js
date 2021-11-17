@@ -35,3 +35,4 @@ exports.fizzBuzz = ( nombre ) => {
     if(nombre % 5 === 0) return "Buzz";
     return nombre ;
 }
+
