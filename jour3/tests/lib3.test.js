@@ -6,7 +6,7 @@ describe("genererPanier" , () => {
         // copie 
         // surcharge 
         lib.reduction = (montant) => { 
-                console.log("exécution de la fonction de simulation")
+                // console.log("exécution de la fonction de simulation")
                 return 10 ;
             };
         const resultat = genererPanier(1 , 20);
@@ -35,3 +35,25 @@ describe("genererPanier" , () => {
 // effectuer une test sur une unité de ton application
 // SANS aucune dépendance 
 
+const { article } = require("../lib3");
+const db = require("../db")
+
+describe("test la fonction article" , () => {
+
+    // si un client à 10 ans => le prix d'un produit 0% de réduction
+
+    it("retourne un produit de 0% de reduction si client a 10 ans" , () => {
+        db.getClient = jest.fn().mockReturnValue({ id : 1 , age : 10 })
+        const cde = { prix : 10 };
+        article( cde , 1 )
+        expect(cde.prix).toBe(10);
+    })
+
+    // si un client à 21 ans => le prix d'un produit -10% de réduction
+    it("retourne un produit de -10% de reduction si client plus de 20 ans" , () => {
+        db.getClient = jest.fn().mockReturnValue({ id : 1 , age : 21 })
+        const cde = { prix : 10 };
+        article( cde , 1 )
+        expect(cde.prix).toBe(10 * 0.9);
+    })
+})

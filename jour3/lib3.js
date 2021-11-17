@@ -13,3 +13,12 @@ exports.genererPanier = (id_client , montant) => {
 }
 
 
+const db = require("./db")
+exports.article = (obj , id_client) => {
+  const client = db.getClient(id_client) // récupére un client 
+
+  if(client.age > 20){
+    obj.prix *= 0.9 ; // réduction de 10% sur le produit 
+  }
+}
+
