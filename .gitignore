@@ -7,3 +7,4 @@ jour2-tp/.env
 jour2-test-unitaire/node_modules
 jour3/node_modules
 jour3-integration/node_modules
+jour3-integration/.env

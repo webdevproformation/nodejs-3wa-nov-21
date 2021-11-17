@@ -1,5 +1,6 @@
 const express = require("express");
 const { connect } = require("mongoose");
+require("dotenv").config();
 
 const PORT = process.env.PORT || 4444 ;
 
