@@ -104,3 +104,20 @@ palindrome("") => false
 
 palindrome("bonjour")
 palindrome("manger") => false regnam
+
+
+// dans le fichier lib3.js créer un nouvelle fonction 
+const db = require("./db")
+export.article = (obj) => {
+  const client = db.getClient(id) // récupére un client 
+
+  if(client.age > 20){
+    obj.prix *= 0.9 ; // réduction de 10% sur le produit 
+  }
+}
+// fichier db.js 
+exports.getClient = (id) => {
+  return { id : id , age : 30 };
+}
+
+// tester la fonction article en utilisant une fonction de simulation sur la méthode getClient
