@@ -37,3 +37,22 @@ describe("rechercheArticle" , () => {
         expect(resultat.length).toBe(0)
     })
 })
+
+describe("creerProfilUtilisateur", () => {
+    // cas où la fonction va lever une exception
+    it("lève une exception si les inputs sont absents ou falsy" , () => {
+        expect(() => { lib.creerProfilUtilisateur() }).toThrow();
+
+        const falsy = [0 , undefined , null , -0 , false , "" , NaN] ;
+        falsy.forEach( faux  => {
+            expect(() => { lib.creerProfilUtilisateur(faux , faux) }).toThrow();
+        })
+    })
+    // le cas où on récupère un objet 
+    it("retourne un user si les inputs sont valides" , () => {
+        const resultat = lib.creerProfilUtilisateur("a", "a")
+        expect(resultat).toHaveProperty("dt_creation")
+        expect(resultat).toHaveProperty("email" , "a")
+        expect(resultat).toMatchObject({"password" : "a"})
+    })
+})

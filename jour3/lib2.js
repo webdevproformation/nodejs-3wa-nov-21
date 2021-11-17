@@ -16,3 +16,16 @@ exports.rechercheArticle = (titre) => {
     ];
     return bdd.filter( el => el.titre.toLowerCase().includes(titre) )
 }
+
+// tester une fonction qui contient un path avec une exception 
+exports.creerProfilUtilisateur = (email , password) => {
+    if(!email || !password){
+        throw new Error("identifiants manquants");
+    }
+    return {
+        email ,
+        password ,
+        role : "redacteur",
+        dt_creation : Date.now()
+    }
+}
