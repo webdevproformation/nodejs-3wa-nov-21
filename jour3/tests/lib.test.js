@@ -48,3 +48,59 @@ describe("salutation" , () => {
     })
 })
 
+describe("saison" , () => {
+    // la fonction doit retourner 4 valeurs 
+    test("retourner 4 valeurs" , ()=> {
+        const resultat = lib.saison()
+        expect(resultat.length).toBe(4);
+    })
+    // tester que certaines valeurs sont bien présentes dans le tableau
+    test("doit contenir printemps et automne" , () => {
+        const resultat = lib.saison()
+        expect(resultat).toContain("printemps")
+        expect(resultat).toContain("automne")
+        expect(resultat[0]).toContain("printemps")
+        expect(resultat[2]).toContain("automne")
+    })
+
+    it("doit contenir printemps et automne version 2" , () => {
+        // version qui va vous éviter d'avoir à écrire plusieurs assertions avec des toContain()
+        const resultat = lib.saison()
+        expect(resultat).toEqual(expect.arrayContaining(["printemps" , "automne"]))
+    })
+})
+
+
+describe("fizzBuzz" , () => {
+    it("retourne FizzBuzz si nombre multiple de 5 et 3" , () => {
+        for(let i = 15 ; i < 1000 ; i+= 15){
+            const resultat = lib.fizzBuzz(i)
+            expect(resultat).toEqual("FizzBuzz")
+        }
+    })
+    it("retourne Fizz si nombre multiple de 3" , () => {
+        for(let i = 3 ; i < 1000 ; i+= 3){
+            if(i % 5 != 0){
+                const resultat = lib.fizzBuzz(i)
+                expect(resultat).toEqual("Fizz")
+            }
+        }
+    })
+    it("retourne Buzz si nombre multiple de 5" , () => {
+        for(let i = 5 ; i < 1000 ; i+= 5){
+            if(i % 3 != 0){
+                const resultat = lib.fizzBuzz(i)
+                expect(resultat).toEqual("Buzz")
+            }
+        }
+    })
+    it("retourne nombre si nombre n'est pas multiple de 3 ou 5" , () => {
+        for(let i = 1 ; i < 1000 ; i++){
+            if(i % 3 != 0 && i % 5 != 0){
+                const resultat = lib.fizzBuzz(i)
+                expect(resultat).toEqual(i)
+            }
+        }
+    })
+})
+

@@ -28,4 +28,24 @@ traitements dans la fonction
 réaliser les fonctions de test pour vérifier cette fonction 
 
 
+// ----------------------- 
+
+dans le fichier lib.js créer une fonction qui s'appelle FizzBuzz 
+=> paramètre nombre 
+fonction retourner soit un nombre soit une chaine de caractères
+
+1 == > 1
+2  => 2
+3  => Fizz (3 est un multiple de 3)
+4 => 4 
+5 => "Buzz" (5 est un multiple de 5)
+6 => Fizz  (6 est un multiple de 3)
+...
+15 => FizzBuzz (15 est un multiple de 5 et 3 en même temps )
+
+// une fois que vous avez créer cette fonction, réaliser les tests pour vérifier
+// que la logique vous vous avez mis en place dans la fonction est à toutes épreuves 
+
+// rdv 11h15 @ toute suite !! 
+
 

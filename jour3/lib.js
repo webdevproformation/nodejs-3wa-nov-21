@@ -21,3 +21,17 @@ exports.salutation = (langue) => {
     if(langue == "en") return "<p>Hello</p>"; 
     return "langue inconnue"
 }
+
+
+// tester des array => fonction qui vont retourner des tableaux
+
+exports.saison = () => {
+    return ["printemps", "été", "automne", "hiver"];
+}
+
+exports.fizzBuzz = ( nombre ) => {
+    if(nombre % 3 === 0 && nombre % 5 === 0) return "FizzBuzz" ;
+    if(nombre % 3 === 0) return "Fizz";
+    if(nombre % 5 === 0) return "Buzz";
+    return nombre ;
+}
