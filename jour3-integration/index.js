@@ -10,5 +10,7 @@ connect(url , {useNewUrlParser : true})
     .catch(ex => console.log(new Error(ex)))
 
 const app = express();
+app.use(express.json());
+app.use("/" , require("./route"));
 
 app.listen(PORT , console.log(`express sur port ${PORT}`));
