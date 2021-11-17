@@ -13,5 +13,19 @@
 
 // .test.js | .spec.js 
 
+// ----------------------- 
+
+dans le fichier lib.js créer une fonction qui s'appelle "salutation"
+cette fonction dispose d'un paramètre "langue"
+traitements dans la fonction 
+    si la langue est == "fr" 
+     retourner <p>Bonjour</p>
+    si la langue est == "en" 
+     retourner <p>Hello</p>  
+    sinon 
+     retourner "langue inconnue"
+
+réaliser les fonctions de test pour vérifier cette fonction 
+
 
 

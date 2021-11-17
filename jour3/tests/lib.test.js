@@ -30,3 +30,21 @@ describe("genererBtn" , () => {
         expect(resultat).toMatch(/button class/)
     } )
 })
+
+describe("salutation" , () => {
+    test("input fr retourne <p>Bonjour</p>" , () => {
+        const resultat = lib.salutation("fr")
+        expect(resultat).toMatch(/^<p>Bonjour<\/p>$/);
+        expect(resultat).toBe("<p>Bonjour</p>");
+        expect(resultat).toContain("<p>Bonjour</p>");
+    })
+    it("return <p>Hello</p> si input en" , () => {
+        const resultat = lib.salutation("en");
+        expect(resultat).toBe("<p>Hello</p>");
+    })
+    it("return langue inconnue si no input" , () => {
+        const resultat = lib.salutation();
+        expect(resultat).toBe("langue inconnue");
+    })
+})
+

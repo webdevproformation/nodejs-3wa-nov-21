@@ -15,3 +15,9 @@ exports.genererBtn = ( text , id ) => {
     return `<button class="${text}">${text}</button>`;
 }
 
+
+exports.salutation = (langue) => {
+    if(langue == "fr") return "<p>Bonjour</p>";
+    if(langue == "en") return "<p>Hello</p>"; 
+    return "langue inconnue"
+}
