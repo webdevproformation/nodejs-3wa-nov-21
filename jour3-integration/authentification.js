@@ -2,6 +2,7 @@
 exports.authentification = ( req, rep,  next ) => {
 
     // recupérer le req => header("x-auth")
+    // JsonWebToken 
     // si cette information n'est pas présent => erreur 401 non autorisé 
 
     // verifier est ce que cet entête est valid => erreur 400 
