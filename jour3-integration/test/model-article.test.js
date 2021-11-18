@@ -1,6 +1,7 @@
 const request = require("supertest");
 const server = require("../index");
-const { Article } = require("../model-article")
+const { Article } = require("../model-article");
+const { Types } = require("mongoose")
 let serveur ; 
 
 describe("POST " , () => {
@@ -74,11 +75,28 @@ describe("GET /:id" , () => {
         serveur = require("../index");
     })
     afterEach( async () => { 
+        await Article.deleteMany({})
         serveur.close();
     })
 
-    it.todo("demande un article avec un id invalid")
-    it.todo("demande d'un article avec id valid mais il n'existe plus")
-    it.todo("demande d'un article avec un id valid")
+    it("demande un article avec un id invalid" , async () => {
+        const rep = await request(serveur).get(`/1`);
+        expect(rep.status).toBe(400); // Bad Request 
+    })
+    it("demande d'un article avec id valid mais il n'existe plus => 404" , async () => {
+        const id = Types.ObjectId(); 
+        const rep = await request(serveur).get(`/${id}`);
+        expect(rep.status).toBe(404);
+        // SELECT * FROM table WHERE id = 9999999
+        // ""
+    })
+    it("demande d'un article avec un id valid" , async () => {
+        let nouvelArticle = new Article({ titre : "aaaaa" , contenu : "aaaaa" })
+        nouvelArticle = await nouvelArticle.save();
+        const rep = await request(serveur).get(`/${nouvelArticle._id}`);
+        expect(rep.status).toBe(200);
+        expect(rep.body).toHaveProperty("titre" , "aaaaa")
+        expect(rep.body).toHaveProperty("contenu" , "aaaaa")
+    })
 
 })

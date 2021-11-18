@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const { Article } = require("./model-article");
 const router = Router();
+const { Types } = require("mongoose")
 
 router.get("/" , async (req, rep) => {
   const articles = await Article.find();
@@ -9,8 +10,14 @@ router.get("/" , async (req, rep) => {
 
 router.get("/:id" , async(req, rep) => {
    const id = req.params.id ;
-   let articheRecherche = await Article.findById(id);
-   rep.json(articheRecherche);
+   if(!Types.ObjectId.isValid(id)){
+    return rep.status(400).send("id non valid");
+   }
+   let articleRecherche = await Article.findById(id);
+   if(!articleRecherche){
+    return rep.status(404).send("article non trouvé pour l'id demandé")
+   }
+   rep.json(articleRecherche);
 })
 
 router.post("/" , async (req, rep) => {
