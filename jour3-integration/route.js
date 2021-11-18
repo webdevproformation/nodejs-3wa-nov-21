@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { Article } = require("./model-article");
+const { Article , schemaArticleJoi } = require("./model-article");
 const router = Router();
 const { Types } = require("mongoose")
 const { authentification } = require("./authentification");
@@ -32,7 +32,11 @@ router.get("/:id" , async(req, rep) => {
 
 router.post("/creer" , authentification  ,  async (req, rep) => {
   const {titre , contenu} = req.body;
-  let article = new Article( { titre , contenu});
+  const { value , error } = schemaArticleJoi.validate({titre , contenu})
+  if(error){
+    return rep.status(400).send("article non conforme ")
+  }
+  let article = new Article( { titre , contenu });
   article = await article.save();
   rep.json(article);
 })

@@ -2,6 +2,7 @@ const request = require("supertest");
 const server = require("../index");
 const { Article } = require("../model-article");
 const { Types } = require("mongoose")
+const { User } = require("../model-user");
 let serveur ; 
 
 describe("POST " , () => {
@@ -127,12 +128,51 @@ describe("GET /titre/:titre" , () => {
 
 describe("POST /creer avec authentification" , () => {
 
-    it.todo("token non fourni , serveur répond erreur 401")
+    let token ; 
+    let titre ;
+    const exec = async () => {
+        return await request(serveur).post( "/creer" )
+                .set("x-auth" , token)
+                .send({titre : titre , contenu : "aaaaa"});
+    }
 
-    it.todo("token fourni mais invalid , serveur répond erreur 400")
+    beforeEach(() => {
+        token = (new User()).generateJWT();
+        titre = "aaaaa"
+        serveur = require("../index");
+    })
+    afterEach( async () => {  
+        serveur.close(); 
+    })
+    it("token non fourni , serveur répond erreur 401", async() => {
+        token = "";
+        const rep = await exec();
+        expect(rep.status).toBe(401);
+    })
 
-    it.todo("token fourni valid fournit un article invalid , serveur répond 400")
+    it("token fourni mais invalid , serveur répond erreur 400" , async () => {
+        token = "a";
+        const rep = await exec();
+        expect(rep.status).toBe(400);
+    })
 
-    it.todo("token fourni valid et un article valide , serveur répond 200")
+    it("token fourni valid fournit un article invalid , serveur répond 400" , async () => {
+        titre = "a"
+        const rep = await exec();
+        // erreur de Mongoose pas un retour 400 du serveur 
+        expect(rep.status).toBe(400);
+    })
+
+    it("token fourni valid fournit un article invalid titre sup de 200 caractères , serveur répond 400" , async () => {
+        titre = new Array(200+2).join("a")
+        const rep = await exec();
+        // erreur de Mongoose pas un retour 400 du serveur 
+        expect(rep.status).toBe(400);
+    })
+
+    it("token fourni valid et un article valide , serveur répond 200" , async () => {
+        const rep = await exec();
+        expect(rep.status).toBe(200);
+    })
 
 })
