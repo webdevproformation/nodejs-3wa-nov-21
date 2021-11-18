@@ -7,6 +7,12 @@ router.get("/" , async (req, rep) => {
   rep.json(articles);
 })
 
+router.get("/:id" , async(req, rep) => {
+   const id = req.params.id ;
+   let articheRecherche = await Article.findById(id);
+   rep.json(articheRecherche);
+})
+
 router.post("/" , async (req, rep) => {
     const {titre , contenu} = req.body;
     let article = new Article( { titre , contenu});
