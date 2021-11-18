@@ -9,9 +9,7 @@ const { authentification } = require("../authentification")
 const { User } = require("../model-user");
 
 describe("authentification middleware" , () => {
-
     let req ;
-
     beforeEach(() => {
         const token = (new User()).generateJWT();
         req = {
