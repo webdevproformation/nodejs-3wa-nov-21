@@ -37,7 +37,7 @@ describe("GET " , () => {
     })
     it("récupérer des articles de la base de données", async () => {
         // ajouter de articles valides via la model mongoose Article
-        await Article.insertMany(nouveauxArticle)
+        await Article.insertMany(nouveauxArticle)// .lastid()
         // requête avec supertest 
         const rep = await request(server).get("/")
         // get() post() put() delete()

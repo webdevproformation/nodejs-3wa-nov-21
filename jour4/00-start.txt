@@ -48,5 +48,40 @@ describe("POST " , () => {
 })
 
 
+NoSQL : MongoDB / Redis 
 
+l'id des document est calculé 
+pas comme dans mySQL table id => insert => select max() => +1 => ajouter la colonne id 
 
+MongoDB => idéal flux d'information très rapide => tchat // fil d'actualité 
+
+MySQL => base de données modèle => 
+id typer 
+prix => "string" INT 
+
+mongoose => Schema 
+
+collection => id => id primaire => copie de id secondaire (table principale)
+
+si tu arrives à inserer plus de 16 millions de lignes insérer la même 1 seconde
+
+relation CONTRAINTES 
+
+clients  <------------> commandes
+si un client a une commande => MYSQL impossible de le supprimer CONSTRAINT
+
+TRANSACTION START ;
+
+INSERT INTO `COMPTE` (montant , dt)  VALUES (1000, 2021...)
+INSERT INTO `COMPTE_PASSIF_BANQUE` (montant , dt)  VALUES (1000, 2021...)
+INSERT INTO `COMPTE_ACTIF_BANQUE` (montant , dt)  INTO (1000, 2021...)
+
+COMMIT ROLLBACK ; 
+
+MongoDB => NON 
+
+ACID : 
+
+// ---------------
+
+rdv 11h22 bon café @ toute suite !! 
