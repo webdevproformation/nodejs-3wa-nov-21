@@ -1,0 +1,52 @@
+test unitaire => permet de tester une unité du code de manière indépendante 
+SANS les dépendances 
+SANS solicités des fichiers / autres fonctions les base de données 
+si la fonctionnalité en est dépendante 
+même si il y a une dépendance => fonction de mock 
+
+
+test intégration => tester une unité du projet en utilisant ses dépendances 
+la fonctionnalité et la ou les dépendances dont elle a besoin pour fonctionner 
+
+jest 
+requête => supertest => permet de faire une requête comme avec un postman 
+
+test intégration un peu plus compliqué à écrire 
+
+=> sollicité le serveur express de l'application 
+=> il faudra stopper et redémarrer le serveur à chaque test 
+=> ajouter / vider des données directement dans la  base 
+=> base de test à part 
+
+pour pouvoir faire des tests d'intégration avec notre projet =>
+setup (mettre en place ) un environnement 
+
+dans nos fichiers de test.js 
+
+describe("POST " , () => {
+    let titre ; // variable globale qui va être partagée entre les tests
+    beforeEach(() => {
+        titre = "Article 1"; // initialisée pour tous les tests 
+    })  // appliquer des modifications avant chaque test
+    afterEach(() => {})   // appliquer des modifications après chaque test
+                          
+    it("test" , () => {
+        // let titre = "Article 1" // plus besoin d'écrire cette variable 
+        // récupère bien un objet depuis la requête 
+        // dans l'objet => propriété _id titre ...
+        // status du serveur => 200 // 404 // 400 ....
+        expect().toBe()
+    });
+    it("test" , () => {
+        titre = ""; 
+        expect().toBe()
+    });
+    it("test" , () => {
+        // let titre = "Article 1" // plus besoin d'écrire cette variable 
+        expect().toBe()
+    });
+})
+
+
+
+
