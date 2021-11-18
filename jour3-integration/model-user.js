@@ -1,5 +1,6 @@
 const { Schema , model } = require("mongoose");
 const jwt = require("jsonwebtoken");
+const Joi = require("joi");
 require("dotenv").config();
 
 const userSchema = new Schema({
@@ -17,3 +18,8 @@ userSchema.methods.generateJWT = function(){
 }
 
 exports.User = model("users", userSchema)
+
+exports.schemaUserJoi = Joi.object({
+    email : Joi.string().email({tlds:{allow: true}}).min(5).required() ,
+    password : Joi.string().min(5).required() ,
+})

@@ -127,3 +127,22 @@ users
 exporter le model créé 
 
 // méthode qui permet de gérer le token 
+
+// ----------------------------
+
+// créer une nouvelle route qui permet de créer des comptes utilisateurs
+
+post /creer-user 
+
+cette route utilise le middleware authentification
+
+// créer la route et réaliser les tests d'intégration sur cette route 
+
+pas de token => 401
+token invalid => 400
+token valid et que profil n'est pas conforme => 400
+token valid et que le profil est conforme => 200
+
+
+
+

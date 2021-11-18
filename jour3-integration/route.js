@@ -3,6 +3,7 @@ const { Article , schemaArticleJoi } = require("./model-article");
 const router = Router();
 const { Types } = require("mongoose")
 const { authentification } = require("./authentification");
+const { schemaUserJoi , User } = require("./model-user");
 
 router.get("/" , async (req, rep) => {
   const articles = await Article.find();
@@ -48,6 +49,15 @@ router.post("/" , async (req, rep) => {
     rep.json(article);
 })
 
-
+router.post("/creer-user" , authentification  , async( req, rep) => {
+  const { email , password } = req.body;
+  const { value , error } = schemaUserJoi.validate({ email , password });
+  if(error){
+    return rep.status(400).send("profil invalid");
+  }
+  let nouvelUser = new User({ email , password })
+  nouvelUser = await nouvelUser.save();
+  rep.json(nouvelUser); 
+})
 
 module.exports = router ; 

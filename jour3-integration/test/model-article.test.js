@@ -176,3 +176,41 @@ describe("POST /creer avec authentification" , () => {
     })
 
 })
+
+
+describe("POST /creer-user avec authentification" , () => {
+
+    beforeEach(() => {
+        serveur = require("../index");
+    })
+    afterEach( async () => {  
+        serveur.close(); 
+    })
+    it("pas de token => 401" , async () => {
+        const rep = await request(serveur).post("/creer-user")
+        expect(rep.status).toBe(401)
+    })
+    it("token invalid => 400" , async () => {
+        const token = "a"
+        const rep = await request(serveur).post("/creer-user")
+                                          .set("x-auth", token );
+        expect(rep.status).toBe(400)
+    })
+    it("token valid et que profil n'est pas conforme => 400" , async () => {
+        const token = (new User).generateJWT()
+        const profil = {email : "a" , password : "a"} ;
+        const rep = await request(serveur).post("/creer-user")
+                                          .set("x-auth", token )
+                                          .send(profil);
+        expect(rep.status).toBe(400)               
+    })
+    it("token valid et que le profil est conforme => 200" , async () => {
+        const token = (new User).generateJWT()
+        const profil = {email : "a@a.fr" , password : "aaaaa"} ;
+        const rep = await request(serveur).post("/creer-user")
+                                          .set("x-auth", token )
+                                          .send(profil);
+        expect(rep.status).toBe(200);          
+    })
+    
+})
