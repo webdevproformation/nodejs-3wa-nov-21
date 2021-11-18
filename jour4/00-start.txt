@@ -143,6 +143,15 @@ token invalid => 400
 token valid et que profil n'est pas conforme => 400
 token valid et que le profil est conforme => 200
 
+// --------------------------------  
+
+// code coverage ?? 
+
+// déterminer la couverture des test sur l'ensemble de votre code 
+
+// package.json 
+
+"test": "jest --watchAll --verbose --detectOpenHandles --coverage"
 
 
 

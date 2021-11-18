@@ -8,3 +8,4 @@ jour2-test-unitaire/node_modules
 jour3/node_modules
 jour3-integration/node_modules
 jour3-integration/.env
+jour3-integration/coverage

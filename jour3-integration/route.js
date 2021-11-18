@@ -60,4 +60,8 @@ router.post("/creer-user" , authentification  , async( req, rep) => {
   rep.json(nouvelUser); 
 })
 
+router.get("/route-factice" , (req, rep) => {
+  rep.send("factice");
+})
+
 module.exports = router ; 
