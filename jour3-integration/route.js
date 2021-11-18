@@ -2,6 +2,7 @@ const { Router } = require("express");
 const { Article } = require("./model-article");
 const router = Router();
 const { Types } = require("mongoose")
+const { authentification } = require("./authentification");
 
 router.get("/" , async (req, rep) => {
   const articles = await Article.find();
@@ -29,11 +30,20 @@ router.get("/:id" , async(req, rep) => {
    rep.json(articleRecherche);
 })
 
+router.post("/creer" , authentification  ,  async (req, rep) => {
+  const {titre , contenu} = req.body;
+  let article = new Article( { titre , contenu});
+  article = await article.save();
+  rep.json(article);
+})
+
 router.post("/" , async (req, rep) => {
     const {titre , contenu} = req.body;
     let article = new Article( { titre , contenu});
     article = await article.save();
     rep.json(article);
 })
+
+
 
 module.exports = router ; 

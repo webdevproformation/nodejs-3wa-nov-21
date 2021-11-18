@@ -105,7 +105,7 @@ describe("GET /titre/:titre" , () => {
     beforeEach( () => {
         serveur = require("../index");
     })
-    afterEach( async () => { 
+    afterEach( async () => {
         await Article.deleteMany({})
         serveur.close();
     })
@@ -122,3 +122,7 @@ describe("GET /titre/:titre" , () => {
         expect(rep.body.length).toBe(0);
     })
 })
+
+// route pour créer des articles => il faut au préalable avoir une autorisation pour pouvoir réaliser l'insertion
+
+
