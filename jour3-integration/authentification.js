@@ -12,4 +12,7 @@ exports.authentification = ( req, rep,  next ) => {
     // req.user = l'entête 
     // et le next()
     next();
+    // rdv 14h00 bon appétit !! 
 }
+
+

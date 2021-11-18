@@ -95,3 +95,35 @@ soit l'article recherché n'existe pas => tableau vide avec un status 404
 ajouter la nouvelle route dans le fichier route.js 
 
 et ajouter les test dans le fichier model-article.test.js 
+
+// ---------
+route avec un middleware d'authentification
+
+// jsonwebtoken 
+// npm i jsonwebtoken
+
+// 1 générer le token 
+// token = jwt.sign({_id } , "clé secrete")
+// _id d'un utilisateur 
+// dans le fichier modele mongoose 
+// 
+
+// 2 verifier le token
+// jwt.verify(token ,  "clé secrete")
+
+// cas pratique :
+créer un nouveau fichier model-user.js 
+
+importer mongoose => Schema et model 
+
+schema ({
+    email : chaine de caractère obligatoire min 5
+    password : chaine de caractère obligatoire min 5
+    dt_creation : par défaut maintenant
+})
+
+model qui va enregistrer le user dans la table
+users 
+exporter le model créé 
+
+// méthode qui permet de gérer le token 

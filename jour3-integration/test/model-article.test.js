@@ -125,4 +125,14 @@ describe("GET /titre/:titre" , () => {
 
 // route pour créer des articles => il faut au préalable avoir une autorisation pour pouvoir réaliser l'insertion
 
+describe("POST /creer avec authentification" , () => {
 
+    it.todo("token non fourni , serveur répond erreur 401")
+
+    it.todo("token fourni mais invalid , serveur répond erreur 400")
+
+    it.todo("token fourni valid fournit un article invalid , serveur répond 400")
+
+    it.todo("token fourni valid et un article valide , serveur répond 200")
+
+})
