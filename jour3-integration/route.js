@@ -8,6 +8,15 @@ router.get("/" , async (req, rep) => {
   rep.json(articles);
 })
 
+router.get("/titre/:titre" , async(req, rep) => {
+  const titre = req.params.titre
+  const articleRecherche = await Article.find({titre : titre});
+  if(articleRecherche.length === 0){
+    return rep.status(404).json(articleRecherche);
+  }
+  rep.json(articleRecherche);
+})
+
 router.get("/:id" , async(req, rep) => {
    const id = req.params.id ;
    if(!Types.ObjectId.isValid(id)){

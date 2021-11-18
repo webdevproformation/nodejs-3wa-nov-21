@@ -84,4 +84,14 @@ ACID :
 
 // ---------------
 
-rdv 11h22 bon café @ toute suite !! 
+Ajouter une nouvelle fonctionnalité recherche un article via son titre 
+
+ajouter une nouvelle route 
+get(/titre/:titre , () => { })
+
+soit l'article recherché existe => retourne le ou les articles status 200
+soit l'article recherché n'existe pas => tableau vide avec un status 404 
+
+ajouter la nouvelle route dans le fichier route.js 
+
+et ajouter les test dans le fichier model-article.test.js 

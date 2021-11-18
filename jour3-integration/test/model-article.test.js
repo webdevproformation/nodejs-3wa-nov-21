@@ -100,3 +100,25 @@ describe("GET /:id" , () => {
     })
 
 })
+
+describe("GET /titre/:titre" , () => {
+    beforeEach( () => {
+        serveur = require("../index");
+    })
+    afterEach( async () => { 
+        await Article.deleteMany({})
+        serveur.close();
+    })
+    it("retourne le ou les articles status 200 si titre envoyé qui existe" , async () =>{
+        let nouvelArticle = new Article({titre : "aaaaa" , contenu : "aaaaa"})
+        nouvelArticle = await nouvelArticle.save()
+        const rep = await request(serveur).get("/titre/aaaaa");
+        expect(rep.status).toBe(200)
+        expect(rep.body.length).toBe(1);
+    })
+    it("retourne tableau vide status 404 si titre envoyé qui n'existe pas" , async () => {
+        const rep = await request(serveur).get("/titre/a");
+        expect(rep.status).toBe(404)
+        expect(rep.body.length).toBe(0);
+    })
+})
