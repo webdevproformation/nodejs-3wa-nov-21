@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 3210
 const app = express()
 // middleware 
 //déclare que le contenu du dossier images qui est appelé /images est public
-app.use("/images" , express.static("images"))
+
 
 const strategie = multer.diskStorage({
     destination : (req, file , cb) => {
@@ -56,6 +56,11 @@ app.post("/" , upload.single("pdf") , async (req, rep) => {
     fiche = new Fiche(fiche)
     fiche =  await fiche.save()
     rep.json(fiche)
+})
+app.use("/images", express.static("images"))
+
+app.get("*" , (req, rep) => {
+    rep.redirect("/")
 })
 
 app.listen(PORT , () => {console.log("express start sur port " + PORT) })
