@@ -1,0 +1,14 @@
+extends layout 
+
+block page_title 
+    title nous contacter
+
+block page_contenu
+    h1 utiliser le formulaire ci dessous 
+    form.col
+        .input-field
+            input(placeholder="votre email" id="email" type="email").validate
+        .input-field
+            textarea(placeholder="votre commentaire" id="commentaire").materialize-textarea.validate
+        input(type="submit" class="btn")
+            
