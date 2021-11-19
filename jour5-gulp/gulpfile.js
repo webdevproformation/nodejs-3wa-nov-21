@@ -53,6 +53,37 @@ gulp.task("prodCss" , async() => {
 
 // npm i gulp-sass --save-dev
 // npm i gulp-rename --save-dev
+// npm i node-sass --save-dev
+const sass = require("gulp-sass")(require("sass"));
+const rename = require("gulp-rename");
+
+gulp.task("scss2css" , async () => {
+    await gulp.src("style.scss")
+        .pipe(sass())
+        .pipe(autoprefixer({
+            browsers: ['last 99 versions']
+        }))
+        .pipe(uglifycss())
+        .pipe(rename("./final.css"))
+        .pipe(gulp.dest("./prod"));
+})
+
+// npm i gulp-jsbeautifier --save-dev
+const beautify = require('gulp-jsbeautifier');
+gulp.task("joli" , async () => {
+    await gulp.src("final.css")
+        .pipe(beautify())
+        .pipe(rename("./final-joli.css"))
+        .pipe(gulp.dest("./prod"));
+})
+
+// créer un nouveau dossier jour5-exo
+
+// dans ce fichier vous allez créer un fichier .scss
+// créer un fichier de config gulp qui permet de réaliser la tâche suivante :
+// transformer le fichier .scss => css
+// transformer le fichier compressé en une ligne 
+// le mettre dans un dossier build 
 
 
 

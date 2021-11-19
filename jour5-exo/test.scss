@@ -1,0 +1,15 @@
+$bleu : rgb(79, 207, 224);
+$bleu-fonce : rgb(25, 109, 121);
+$largeur : 10px;
+h1{
+    a{
+        color : $bleu ;
+    }
+    a:hover{
+        color : $bleu-fonce ;
+    }
+}
+p{
+    margin : $largeur $largeur * 2 ;
+    color : $bleu-fonce;
+}
