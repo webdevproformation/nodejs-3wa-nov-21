@@ -3,6 +3,14 @@
 
 const express = require("express");
 const multer = require("multer");
+const { Fiche } = require("./model-user");
+
+const { connect } = require("mongoose");
+require("dotenv").config();
+
+connect( process.env.DB , {useNewUrlParser : true})
+        .then(() => console.log("connexion db réussie"))
+        .catch(ex => console.log(new Error(ex)))
 
 const PORT = process.env.PORT || 3210
 const app = express()
@@ -15,7 +23,9 @@ const strategie = multer.diskStorage({
         cb( null , `${__dirname}/images/` ) // chemin absolu dans le dossier en cours 
     },
     filename : (req, file , cb) => {
-        cb(null , `${Date.now()}-${file.originalname}` );
+        const finalName = `${Date.now()}-${file.originalname}`;
+        req.finalName = finalName ;
+        cb(null , finalName );
     }
 })
 
@@ -34,15 +44,18 @@ const upload = multer({
     })
 app.use("/" , express.static("public"))
 
-app.post("/" , upload.single("pdf") , (req, rep) => { 
+app.post("/" , upload.single("pdf") , async (req, rep) => { 
     // dans notre requête POST il y aura un champ image => fichier image 
     // on peut envoyer 1 seule image 
     // démarrer le serveur 
     // lancer postman 
-    rep.json({
-        file : req.file, // ajoute une nouvelle propriété à req => file 
-        body : req.body  // pour les champs de type textuel 
-    })
+    let fiche = {
+        nom : req.body.nom,
+        fichier_pdf : `images/${req.finalName}`
+    }
+    fiche = new Fiche(fiche)
+    fiche =  await fiche.save()
+    rep.json(fiche)
 })
 
 app.listen(PORT , () => {console.log("express start sur port " + PORT) })
@@ -58,3 +71,5 @@ app.listen(PORT , () => {console.log("express start sur port " + PORT) })
 // créer une nouvelle fiche qui contient 
 // nom mis 
 // upload/dt-nom_fichier => dans la base de données 
+
+// npm i mongoose dotenv
