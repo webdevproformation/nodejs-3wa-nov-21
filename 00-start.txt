@@ -1,0 +1,83 @@
+j'ai réalisé projet nodejs 
+
+- l'héberger sur internet => machine qui contient nodejs 
+- serveurs dédiés / 
+- vps machine virtuelle dans un serveur dédié 
+- hébergement multualisé nodejs je ne penses pas  
+
+- heroku => nodejs php python ... 
+
+=> j'ai créé un compte Heroku => prendre projet local => transférer vers machine heroku 
+
+0 préparer son application pour quelle soit compatible avec Heroku 
+    PORT = process.env.PORT 
+    module à installer cors / helmet compression
+    modification dans le fichier package.json 
+
+1 créer un compte heroku 
+2 installé un logiciel heroku cli => heroku create // heroku open 
+3 les commandes git de base 
+    git init
+    git add *
+    git commit -m "text que l'on veut"
+    heroku create
+    git push heroku master / main 
+    heroku open 
+
+dans le fichier server.js => créer une nouvelle route 
+
+nous-contacter => afficher le texte 
+ => veuillez utiliser le formulaire ci dessous 
+
+mettre en ligne cette nouvelle modification dans votre hébergement heroku 
+
+// --------------------
+je modifie mes fichiers sources 
+
+test manuel nodemon server.js 
+
+déploiement => mettre en ligne 
+git add *
+git commit -m "description évolution réalisée" 
+git push heroku main / master 
+
+heroku open / dans le navigateur tu fais refresh 
+
+heroku create => créer le projet héberger sur heroku 
+
+ajouter des remote urls qui vont lier dépot local au dépot distant sur héroku 
+
+git remote -v
+
+git push https://git.heroku.com/whispering-escarpment-38593.git main 
+git push heroku main 
+
+git push origin main 
+git push 
+
+git remote add origin https://git.heroku.com/whispering-escarpment-38593.git
+
+git push --set-upstream origin main
+
+// ne met pas sur github 
+// heroku => clone de github / bitbucket / gitlab 
+// host de dépot git 
+
+// git client => https://git-scm.com/download/win
+// git serveur => https://git-scm.com/book/id/v2/Git-di-Server-GitLab
+
+
+// espace de gestion => 
+heroku.com
+
+
+// fonctionnalité github => pipeline ()
+// sur l'hébergement ajouter des scripts de test => effectuer vérification 
+// si tout est ok => déploiement 
+// vérifier en central les modifications à déployer (idéal pour projet multi dév)
+
+// npm test 
+// => déploiement 
+// tâche de admin => créer un machine virtuel / merge avec un branch 
+// CI : Continous Integration 
+
