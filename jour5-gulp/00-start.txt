@@ -1,0 +1,5 @@
+nodejs est un outil de ligne de commande 
+créer des serveurs => application web 
+
+créer des app en ligne de commande 
+
