@@ -81,3 +81,44 @@ heroku.com
 // tâche de admin => créer un machine virtuel / merge avec un branch 
 // CI : Continous Integration 
 
+// rdv 11h07 bon café @ toute suite !!! 
+
+Manuellement : 
+
+// vps => linux (debian)=> apt install nodejs 
+// apache ajouterune config à apache https://redstapler.co/run-node-js-apache-server/
+// filezilla => transférer projet AVEC le dossier node module 
+// tondomaine.com/node 
+
+// o2swith => hébergement multilisé avec accès ssh et possibilité d'installer nodejs 
+
+// sur le projet mise en ligne sur heroku 
+// réaliser télécharger pug 
+// créer un dossier public 
+//       index.pug
+//       contact.pug
+//      layout.pug 
+//      menu.pug 
+//      installer la librairie materialize dans votre layout 
+
+deux pages 
+page d'accueil
+menu 
+    lien vers l'accueil
+    lien vers la page contact 
+
+=> bien venu sur mon site 
+
+page de contact 
+menu 
+    lien vers l'accueil
+    lien vers la page contact  
+
+=> formulaire 
+    champ de saisi pour email
+    champ de saisi pour commentaire
+
+
+
+
+
